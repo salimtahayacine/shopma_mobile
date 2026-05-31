@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout custom de l'icône panier avec badge dans la Toolbar -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_panier"
+    android:layout_width="@dimen/badge_container_size"
+    android:layout_height="@dimen/badge_container_size"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackgroundBorderless">
+
+    <ImageView
+        android:layout_width="@dimen/badge_icon_size"
+        android:layout_height="@dimen/badge_icon_size"
+        android:layout_gravity="center"
+        android:src="@android:drawable/ic_menu_upload"
+        android:tint="@color/white"
+        android:contentDescription="@string/title_panier" />
+
+    <TextView
+        android:id="@+id/tv_badge"
+        android:layout_width="@dimen/badge_size"
+        android:layout_height="@dimen/badge_size"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="@dimen/badge_margin"
+        android:layout_marginEnd="@dimen/badge_margin"
+        android:background="@drawable/bg_badge"
+        android:gravity="center"
+        android:textColor="@color/badge_text"
+        android:textSize="@dimen/badge_text_size"
+        android:textStyle="bold"
+        android:text="0"
+        android:visibility="gone" />
+
+</FrameLayout>

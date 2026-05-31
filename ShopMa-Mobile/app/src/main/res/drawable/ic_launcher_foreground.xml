@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icône panier ShopMa (foreground de l'adaptive icon) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Corps du panier -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,30 L32,18 L24,18 L24,24 L28,24 L40,54 L36,60 Q34,64 36,68 Q38,72 44,72 L76,72 L76,66 L44,66 Q42,66 42,64 Q42,62 44,62 L78,62 L86,30 Z
+                          M44,76 A6,6 0 1 0 44,88 A6,6 0 1 0 44,76 Z
+                          M68,76 A6,6 0 1 0 68,88 A6,6 0 1 0 68,76 Z" />
+</vector>

@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">ShopMa</string>
+
+    <!-- Login -->
+    <string name="login_title">Bienvenue sur\nShopMa.</string>
+    <string name="login_subtitle">Le meilleur du shopping marocain, livré chez vous…</string>
+    <string name="login_forgot">Oublié ?</string>
+    <string name="login_demo_hint">Démo : youssef@shopma.ma · mot de passe ≥ 6</string>
+    <string name="login_no_account">Pas de compte ? </string>
+    <string name="login_create_account">Créer un compte</string>
+    <string name="label_email">Adresse email</string>
+    <string name="label_password">Mot de passe</string>
+    <string name="hint_email_login">youssef@shopma.ma</string>
+    <string name="hint_email">votre@email.com</string>
+    <string name="hint_password">••••••</string>
+    <string name="label_remember_me">Se rappeler de moi</string>
+    <string name="btn_login">Se connecter</string>
+    <string name="btn_login_arrow">Se connecter  →</string>
+    <string name="error_field_empty">Champ obligatoire</string>
+    <string name="error_password_short">Mot de passe trop court (min. 6 caractères)</string>
+    <string name="error_invalid_credentials">Identifiants incorrects</string>
+
+    <!-- Dashboard -->
+    <string name="welcome_message">Bonjour, %s</string>
+    <string name="dashboard_subtitle">Prêt pour votre shopping aujourd\'hui ?</string>
+    <string name="hint_search_home">Rechercher un produit, une marque…</string>
+    <string name="hero_badge">Offre Spéciale</string>
+    <string name="hero_title">Électronique\n-20% sur tout</string>
+    <string name="hero_btn">En profiter</string>
+    <string name="label_categories">Catégories</string>
+    <string name="label_voir_tout">Voir tout</string>
+    <string name="label_tendances">Tendances</string>
+    <string name="card_all_sub">Découvrez notre collection</string>
+    <string name="card_pickup_sub">Trouvez un point ShopMa près de vous</string>
+    <string name="card_electronics">Électronique</string>
+    <string name="card_jewelery">Bijoux</string>
+    <string name="card_mens">Mode Homme</string>
+    <string name="card_womens">Mode Femme</string>
+    <string name="card_all">Tous les produits</string>
+    <string name="card_pickup">Points de retrait</string>
+
+    <!-- Catalogue -->
+    <string name="title_catalogue">Catalogue</string>
+    <string name="btn_add_to_cart">Ajouter au panier</string>
+    <string name="added_to_cart">Ajouté au panier !</string>
+    <string name="error_network">Erreur réseau. Vérifiez votre connexion.</string>
+    <string name="loading">Chargement…</string>
+    <string name="btn_share">Partager ce produit</string>
+
+    <!-- Panier -->
+    <string name="title_panier">Mon Panier</string>
+    <string name="panier_vide">Votre panier est vide.</string>
+    <string name="label_total">Total :</string>
+    <string name="btn_commander">Passer commande</string>
+    <string name="confirm_commande_title">Confirmer la commande</string>
+    <string name="confirm_commande_msg">Voulez-vous passer la commande pour un total de %s MAD ?</string>
+    <string name="btn_oui">Oui</string>
+    <string name="btn_non">Non</string>
+    <string name="commande_passee">Commande passée avec succès !</string>
+
+    <!-- Notifications -->
+    <string name="notif_channel_id">shopma_commandes</string>
+    <string name="notif_channel_name">Commandes ShopMa</string>
+    <string name="notif_channel_desc">Notifications de confirmation de commande</string>
+    <string name="notif_title">Commande confirmée !</string>
+    <string name="notif_text">Votre commande a bien été enregistrée. Merci !</string>
+
+    <!-- Recherche -->
+    <string name="title_recherche">Recherche</string>
+    <string name="hint_recherche">Entrez une catégorie…</string>
+    <string name="btn_ok">OK</string>
+    <string name="aucun_resultat">Aucun résultat trouvé.</string>
+
+    <!-- Commandes -->
+    <string name="title_commandes">Mes commandes</string>
+    <string name="statut_en_cours">En cours</string>
+    <string name="statut_livree">Livrée</string>
+    <string name="aucune_commande">Aucune commande pour l\'instant.</string>
+    <string name="label_articles">articles</string>
+    <string name="label_mad">MAD</string>
+
+    <!-- Points de retrait -->
+    <string name="title_points_retrait">Points de retrait</string>
+
+    <!-- Profil -->
+    <string name="title_profil">Mon Profil</string>
+    <string name="label_nom">Nom</string>
+    <string name="label_adresse">Adresse de livraison</string>
+    <string name="btn_photo">Prendre une photo</string>
+    <string name="btn_historique">Historique des commandes</string>
+    <string name="btn_deconnexion">Déconnexion</string>
+    <string name="btn_sauvegarder">Sauvegarder</string>
+    <string name="profil_sauvegarde">Profil sauvegardé !</string>
+    <string name="permission_camera_denied">Permission caméra refusée.</string>
+    <string name="permission_location_denied">Permission localisation refusée.</string>
+
+    <!-- Header Fragment -->
+    <string name="header_panier_badge">%d article(s)</string>
+
+    <!-- Service client intent implicite -->
+    <string name="service_client_tel">+212522000000</string>
+    <string name="btn_appel_service">Appeler le service client</string>
+</resources>

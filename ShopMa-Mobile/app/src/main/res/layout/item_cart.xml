@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="@dimen/item_padding">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_cart_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_body"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_cart_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_price"
+            android:textSize="@dimen/text_body" />
+
+    </LinearLayout>
+
+    <!-- Contrôle quantité -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_minus"
+            android:layout_width="@dimen/btn_qty_size"
+            android:layout_height="@dimen/btn_qty_size"
+            android:text="-"
+            android:textSize="18sp"
+            style="@style/ShopMa.Button"
+            android:padding="0dp" />
+
+        <TextView
+            android:id="@+id/tv_qty"
+            android:layout_width="@dimen/qty_text_width"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_medium"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_plus"
+            android:layout_width="@dimen/btn_qty_size"
+            android:layout_height="@dimen/btn_qty_size"
+            android:text="+"
+            android:textSize="18sp"
+            style="@style/ShopMa.Button"
+            android:padding="0dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

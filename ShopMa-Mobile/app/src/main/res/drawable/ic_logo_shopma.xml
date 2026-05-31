@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icône logo ShopMa : sac de shopping blanc sur fond vert -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="56dp"
+    android:height="56dp"
+    android:viewportWidth="56"
+    android:viewportHeight="56">
+
+    <!-- Fond vert arrondi -->
+    <path
+        android:fillColor="#22C55E"
+        android:pathData="M8,0 L48,0 Q56,0 56,8 L56,48 Q56,56 48,56 L8,56 Q0,56 0,48 L0,8 Q0,0 8,0 Z" />
+
+    <!-- Sac shopping blanc : corps -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M18,22 L38,22 L35,40 L21,40 Z" />
+
+    <!-- Sac shopping blanc : anse gauche -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M22,22 Q22,14 28,14 Q34,14 34,22"
+        android:strokeColor="#22C55E"
+        android:strokeWidth="3"
+        />
+
+</vector>

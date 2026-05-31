@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Dossier pour les photos prises par la caméra (photo de profil) -->
+    <external-files-path
+        name="photos_profil"
+        path="Pictures/" />
+</paths>

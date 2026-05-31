@@ -1,0 +1,73 @@
+<resources>
+    <!-- Marges et paddings -->
+    <dimen name="margin_xsmall">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+
+    <!-- Diviseurs -->
+    <dimen name="divider_height">1dp</dimen>
+
+    <!-- Badge panier Toolbar -->
+    <dimen name="badge_container_size">48dp</dimen>
+    <dimen name="badge_icon_size">26dp</dimen>
+    <dimen name="badge_min_size">24dp</dimen>
+    <dimen name="badge_padding_horizontal">6dp</dimen>
+    <dimen name="badge_margin">4dp</dimen>
+
+    <!-- Boutons quantité panier -->
+    <dimen name="btn_qty_size">36dp</dimen>
+    <dimen name="qty_text_width">40dp</dimen>
+
+    <!-- Padding interne champs texte -->
+    <dimen name="field_padding_small">8dp</dimen>
+    <dimen name="item_btn_padding_horizontal">12dp</dimen>
+
+    <!-- Badge statut commande -->
+    <dimen name="statut_padding_horizontal">10dp</dimen>
+    <dimen name="statut_padding_vertical">4dp</dimen>
+
+    <!-- Elevation -->
+    <dimen name="elevation_bottom_bar">8dp</dimen>
+
+    <!-- Cartes dashboard -->
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_height">120dp</dimen>
+    <dimen name="card_icon_size">40dp</dimen>
+
+    <!-- Textes -->
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_title">22sp</dimen>
+
+    <!-- Items liste -->
+    <dimen name="item_image_size">72dp</dimen>
+    <dimen name="item_padding">12dp</dimen>
+
+    <!-- Badge Toolbar -->
+    <dimen name="badge_size">18dp</dimen>
+    <dimen name="badge_text_size">10sp</dimen>
+
+    <!-- Boutons -->
+    <dimen name="btn_height">48dp</dimen>
+    <dimen name="btn_corner_radius">8dp</dimen>
+
+    <!-- Photo profil -->
+    <dimen name="photo_profil_size">100dp</dimen>
+
+    <!-- Header fragment -->
+    <dimen name="header_height">56dp</dimen>
+
+    <!-- Dashboard redesign -->
+    <dimen name="hero_banner_height">192dp</dimen>
+    <dimen name="cat_icon_bg_size">42dp</dimen>
+    <dimen name="cat_icon_size">22dp</dimen>
+    <dimen name="trending_card_width">160dp</dimen>
+    <dimen name="trending_card_image_height">140dp</dimen>
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <dimen name="section_gap">32dp</dimen>
+    <dimen name="screen_padding_h">20dp</dimen>
+</resources>

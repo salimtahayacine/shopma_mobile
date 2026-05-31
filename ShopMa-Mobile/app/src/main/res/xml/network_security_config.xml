@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Autorise le trafic HTTP cleartext vers 10.0.2.2 (machine hôte depuis l'émulateur)
+    et localhost (tests). HTTPS reste obligatoire pour tout autre domaine.
+-->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- IP de la machine hôte vue depuis l'émulateur Android -->
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <!-- localhost pour tests sur appareil physique via ADB forward -->
+        <domain includeSubdomains="false">localhost</domain>
+    </domain-config>
+</network-security-config>

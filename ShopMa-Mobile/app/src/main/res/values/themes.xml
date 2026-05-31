@@ -1,0 +1,46 @@
+<resources>
+    <!-- Thème principal : NoActionBar pour utiliser notre Toolbar custom -->
+    <style name="Theme.ShopMa" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+    </style>
+
+    <!-- Style Toolbar -->
+    <style name="ShopMa.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/primary</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
+
+    <!-- Style bouton principal -->
+    <style name="ShopMa.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/btn_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">@dimen/btn_corner_radius</item>
+        <item name="android:minHeight">@dimen/btn_height</item>
+    </style>
+
+    <!-- Style bouton pill login (sans elevation Material) -->
+    <style name="ShopMa.Button.Pill" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:background">@drawable/bg_btn_login</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="cornerRadius">50dp</item>
+    </style>
+
+    <!-- Style bouton danger (déconnexion) -->
+    <style name="ShopMa.Button.Danger" parent="ShopMa.Button">
+        <item name="android:backgroundTint">@color/btn_danger</item>
+    </style>
+
+    <!-- Style carte dashboard -->
+    <style name="ShopMa.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardBackgroundColor">@color/card_bg</item>
+    </style>
+</resources>

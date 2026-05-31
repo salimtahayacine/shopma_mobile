@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/container_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:text="@string/title_recherche"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_large"
+        android:textStyle="bold" />
+
+    <!-- Champ de saisie + bouton -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_medium">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_recherche"
+            android:inputType="text"
+            android:background="@android:drawable/edit_text"
+            android:paddingStart="@dimen/field_padding_small"
+            android:paddingEnd="@dimen/field_padding_small" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/btn_ok"
+            style="@style/ShopMa.Button" />
+
+    </LinearLayout>
+
+    <!-- Suggestions catégories -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_medium"
+        android:paddingBottom="@dimen/margin_small">
+
+        <Button android:id="@+id/chip_electronics" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="electronics"
+            android:layout_marginEnd="@dimen/margin_xsmall"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+        <Button android:id="@+id/chip_jewelery" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="jewelery"
+            android:layout_marginEnd="@dimen/margin_xsmall"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+        <Button android:id="@+id/chip_mens" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="men's"
+            android:layout_marginEnd="@dimen/margin_xsmall"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+        <Button android:id="@+id/chip_womens" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="women's"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_aucun_resultat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/margin_large"
+        android:text="@string/aucun_resultat"
+        android:textColor="@color/text_secondary"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/lv_resultats"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/divider"
+        android:dividerHeight="@dimen/divider_height" />
+
+</LinearLayout>

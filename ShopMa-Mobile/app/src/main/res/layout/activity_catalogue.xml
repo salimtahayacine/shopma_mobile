@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <!-- HeaderFragment -->
+    <FrameLayout
+        android:id="@+id/container_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Titre catégorie -->
+    <TextView
+        android:id="@+id/tv_titre_catalogue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:text="@string/title_catalogue"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_large"
+        android:textStyle="bold" />
+
+    <!-- Message d'erreur réseau -->
+    <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:text="@string/error_network"
+        android:textColor="@color/btn_danger"
+        android:visibility="gone" />
+
+    <!-- Liste des produits -->
+    <ListView
+        android:id="@+id/lv_produits"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/divider"
+        android:dividerHeight="@dimen/divider_height" />
+
+</LinearLayout>
