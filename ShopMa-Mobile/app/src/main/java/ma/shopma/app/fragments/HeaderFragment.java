@@ -53,15 +53,22 @@ public class HeaderFragment extends Fragment {
         refresh();
     }
 
-    /** Rafraîchit le badge en relisant le panier en base. */
+    /** Rafraîchit le badge en relisant le panier en base (thread arrière-plan). */
     public void refresh() {
-        if (getContext() == null) return;
-        int count = DatabaseHelper.getInstance(getContext()).compterArticlesPanier();
-        if (count > 0) {
-            tvBadge.setText(String.valueOf(count));
-            tvBadge.setVisibility(View.VISIBLE);
-        } else {
-            tvBadge.setVisibility(View.GONE);
-        }
+        if (!isAdded() || getContext() == null || tvBadge == null) return;
+        android.content.Context ctx = getContext();
+        DatabaseHelper.DB_EXECUTOR.execute(() -> {
+            int count = DatabaseHelper.getInstance(ctx).compterArticlesPanier();
+            if (!isAdded() || getActivity() == null) return;
+            requireActivity().runOnUiThread(() -> {
+                if (tvBadge == null) return;
+                if (count > 0) {
+                    tvBadge.setText(String.valueOf(count));
+                    tvBadge.setVisibility(View.VISIBLE);
+                } else {
+                    tvBadge.setVisibility(View.GONE);
+                }
+            });
+        });
     }
 }

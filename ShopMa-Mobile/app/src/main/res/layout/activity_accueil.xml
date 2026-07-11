@@ -19,66 +19,74 @@
         android:background="@color/white"
         app:elevation="2dp">
 
-        <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingStart="@dimen/screen_padding_h"
-            android:paddingEnd="@dimen/screen_padding_h">
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp">
 
-            <!-- Hamburger menu -->
-            <ImageButton
-                android:id="@+id/btn_menu"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_hamburger"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="Menu"
-                android:layout_marginEnd="12dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/screen_padding_h"
+                android:paddingEnd="@dimen/screen_padding_h">
 
-            <!-- Logo "ShopMa" -->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/app_name"
-                android:textColor="@color/primary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-medium" />
+                <!-- Hamburger menu -->
+                <ImageButton
+                    android:id="@+id/btn_menu"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_hamburger"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Menu"
+                    android:layout_marginEnd="12dp" />
 
-            <!-- Panier avec badge -->
-            <FrameLayout
-                android:id="@+id/fl_cart"
-                android:layout_width="@dimen/badge_container_size"
-                android:layout_height="@dimen/badge_container_size"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackgroundBorderless">
-
-                <ImageView
-                    android:layout_width="@dimen/badge_icon_size"
-                    android:layout_height="@dimen/badge_icon_size"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_cart"
-                    android:contentDescription="Panier" />
-
+                <!-- Logo "ShopMa" -->
                 <TextView
-                    android:id="@+id/tv_badge"
-                    android:layout_width="@dimen/badge_min_size"
-                    android:layout_height="@dimen/badge_min_size"
-                    android:layout_gravity="top|end"
-                    android:layout_margin="@dimen/badge_margin"
-                    android:background="@drawable/bg_badge"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/badge_text_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/app_name"
+                    android:textColor="@color/primary"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:visibility="gone" />
-            </FrameLayout>
+                    android:fontFamily="sans-serif-medium" />
 
-        </LinearLayout>
+                <!-- Panier avec badge -->
+                <FrameLayout
+                    android:id="@+id/fl_cart"
+                    android:layout_width="@dimen/badge_container_size"
+                    android:layout_height="@dimen/badge_container_size"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:layout_width="@dimen/badge_icon_size"
+                        android:layout_height="@dimen/badge_icon_size"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_cart"
+                        android:contentDescription="Panier" />
+
+                    <TextView
+                        android:id="@+id/tv_badge"
+                        android:layout_width="@dimen/badge_min_size"
+                        android:layout_height="@dimen/badge_min_size"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="@dimen/badge_margin"
+                        android:background="@drawable/bg_badge"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/badge_text_size"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <!-- ═══ Contenu scrollable ═══ -->
