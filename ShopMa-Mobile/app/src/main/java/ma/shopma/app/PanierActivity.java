@@ -62,8 +62,10 @@ public class PanierActivity extends AppCompatActivity {
 
         adapter = new CartAdapter(this);
         adapter.setOnQuantityChangeListener((item, newQty) -> {
-            db.mettreAJourQuantite(item.getId(), newQty);
-            chargerPanier();
+            DatabaseHelper.DB_EXECUTOR.execute(() -> {
+                db.mettreAJourQuantite(item.getId(), newQty);
+                runOnUiThread(this::chargerPanier);
+            });
         });
         listView.setAdapter(adapter);
 
@@ -80,37 +82,50 @@ public class PanierActivity extends AppCompatActivity {
     }
 
     private void chargerPanier() {
-        List<CartItem> items = db.lirePanier();
-        adapter.setData(items);
-        double total = db.totalPanier();
-        tvTotal.setText(String.format("%.2f MAD", total));
-        tvPanierVide.setVisibility(items.isEmpty() ? View.VISIBLE : View.GONE);
+        DatabaseHelper.DB_EXECUTOR.execute(() -> {
+            List<CartItem> items = db.lirePanier();
+            double total = db.totalPanier();
+            runOnUiThread(() -> {
+                adapter.setData(items);
+                tvTotal.setText(String.format("%.2f MAD", total));
+                tvPanierVide.setVisibility(items.isEmpty() ? View.VISIBLE : View.GONE);
+            });
+        });
     }
 
     private void confirmerCommande() {
-        if (db.compterArticlesPanier() == 0) {
-            Toast.makeText(this, R.string.panier_vide, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        double total = db.totalPanier();
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.confirm_commande_title)
-                .setMessage(getString(R.string.confirm_commande_msg, String.format("%.2f", total)))
-                .setPositiveButton(R.string.btn_oui, (d, w) -> passerCommande(total))
-                .setNegativeButton(R.string.btn_non, null)
-                .show();
+        DatabaseHelper.DB_EXECUTOR.execute(() -> {
+            int count = db.compterArticlesPanier();
+            double total = db.totalPanier();
+            runOnUiThread(() -> {
+                if (count == 0) {
+                    Toast.makeText(this, R.string.panier_vide, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.confirm_commande_title)
+                        .setMessage(getString(R.string.confirm_commande_msg, String.format("%.2f", total)))
+                        .setPositiveButton(R.string.btn_oui, (d, w) -> passerCommande(total))
+                        .setNegativeButton(R.string.btn_non, null)
+                        .show();
+            });
+        });
     }
 
     private void passerCommande(double total) {
-        int nbArticles = db.compterArticlesPanier();
-        String date = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
-        Order order = new Order(date, nbArticles, total, "en_cours");
-        db.ajouterCommande(order);
-        db.viderPanier();
-        chargerPanier();
-        if (headerFragment != null) headerFragment.refresh();
-        Toast.makeText(this, R.string.commande_passee, Toast.LENGTH_SHORT).show();
-        envoyerNotification();
+        DatabaseHelper.DB_EXECUTOR.execute(() -> {
+            int nbArticles = db.compterArticlesPanier();
+            String date = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+            Order order = new Order(date, nbArticles, total, "en_cours");
+            db.ajouterCommande(order);
+            db.viderPanier();
+            runOnUiThread(() -> {
+                chargerPanier();
+                if (headerFragment != null) headerFragment.refresh();
+                Toast.makeText(PanierActivity.this, R.string.commande_passee, Toast.LENGTH_SHORT).show();
+                envoyerNotification();
+            });
+        });
     }
 
     private void envoyerNotification() {

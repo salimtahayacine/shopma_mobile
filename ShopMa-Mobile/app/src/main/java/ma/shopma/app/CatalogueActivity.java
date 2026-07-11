@@ -108,9 +108,13 @@ public class CatalogueActivity extends AppCompatActivity {
 
     private void ajouterAuPanier(Product product) {
         CartItem item = new CartItem(product.getId(), product.getTitle(), product.getPrice(), 1);
-        DatabaseHelper.getInstance(this).ajouterAuPanier(item);
-        Toast.makeText(this, R.string.added_to_cart, Toast.LENGTH_SHORT).show();
-        if (headerFragment != null) headerFragment.refresh();
+        DatabaseHelper.DB_EXECUTOR.execute(() -> {
+            DatabaseHelper.getInstance(this).ajouterAuPanier(item);
+            runOnUiThread(() -> {
+                Toast.makeText(this, R.string.added_to_cart, Toast.LENGTH_SHORT).show();
+                if (headerFragment != null) headerFragment.refresh();
+            });
+        });
     }
 
     /** Intent implicite : partage du produit par email. */

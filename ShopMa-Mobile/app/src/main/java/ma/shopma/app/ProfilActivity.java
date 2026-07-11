@@ -20,6 +20,7 @@ import androidx.core.content.FileProvider;
 import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputEditText;
 
+import ma.shopma.app.db.DatabaseHelper;
 import ma.shopma.app.utils.PrefManager;
 
 import java.io.File;
@@ -81,6 +82,7 @@ public class ProfilActivity extends AppCompatActivity {
         // Déconnexion
         findViewById(R.id.btn_deconnexion).setOnClickListener(v -> {
             prefs.clearSession();
+            DatabaseHelper.getInstance(this).viderPanier();
             Intent i = new Intent(this, LoginActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);

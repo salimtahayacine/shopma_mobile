@@ -11,6 +11,8 @@ import ma.shopma.app.model.Order;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Gestionnaire SQLite.
@@ -20,6 +22,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "shopma.db";
     private static final int DB_VERSION = 1;
+
+    public static final ExecutorService DB_EXECUTOR = Executors.newSingleThreadExecutor();
 
     // Table panier
     public static final String TABLE_PANIER = "panier";

@@ -40,8 +40,12 @@ public class CommandesActivity extends AppCompatActivity {
         OrderAdapter adapter = new OrderAdapter(this);
         listView.setAdapter(adapter);
 
-        List<Order> commandes = DatabaseHelper.getInstance(this).lireCommandes();
-        adapter.setData(commandes);
-        tvAucune.setVisibility(commandes.isEmpty() ? View.VISIBLE : View.GONE);
+        DatabaseHelper.DB_EXECUTOR.execute(() -> {
+            List<Order> commandes = DatabaseHelper.getInstance(this).lireCommandes();
+            runOnUiThread(() -> {
+                adapter.setData(commandes);
+                tvAucune.setVisibility(commandes.isEmpty() ? View.VISIBLE : View.GONE);
+            });
+        });
     }
 }

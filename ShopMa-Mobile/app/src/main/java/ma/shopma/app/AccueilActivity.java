@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
@@ -46,6 +47,10 @@ public class AccueilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         username = getIntent().getStringExtra(EXTRA_USERNAME);
         if (username == null) username = "";
@@ -153,13 +158,17 @@ public class AccueilActivity extends AppCompatActivity {
     // ─── Badge panier ────────────────────────────────────────────────────────
 
     private void rafraichirBadge() {
-        int count = DatabaseHelper.getInstance(this).compterArticlesPanier();
-        if (count > 0) {
-            tvBadge.setText(String.valueOf(count));
-            tvBadge.setVisibility(View.VISIBLE);
-        } else {
-            tvBadge.setVisibility(View.GONE);
-        }
+        DatabaseHelper.DB_EXECUTOR.execute(() -> {
+            int count = DatabaseHelper.getInstance(this).compterArticlesPanier();
+            runOnUiThread(() -> {
+                if (count > 0) {
+                    tvBadge.setText(String.valueOf(count));
+                    tvBadge.setVisibility(View.VISIBLE);
+                } else {
+                    tvBadge.setVisibility(View.GONE);
+                }
+            });
+        });
     }
 
     // ─── Section Tendances (Retrofit) ────────────────────────────────────────

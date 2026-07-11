@@ -52,9 +52,11 @@ public class RechercheActivity extends AppCompatActivity {
 
         adapter = new ProductAdapter(this);
         adapter.setOnAddToCartListener(p -> {
-            DatabaseHelper.getInstance(this).ajouterAuPanier(
-                    new CartItem(p.getId(), p.getTitle(), p.getPrice(), 1));
-            if (headerFragment != null) headerFragment.refresh();
+            CartItem ci = new CartItem(p.getId(), p.getTitle(), p.getPrice(), 1);
+            DatabaseHelper.DB_EXECUTOR.execute(() -> {
+                DatabaseHelper.getInstance(this).ajouterAuPanier(ci);
+                if (headerFragment != null) runOnUiThread(() -> headerFragment.refresh());
+            });
         });
         listView.setAdapter(adapter);
 
