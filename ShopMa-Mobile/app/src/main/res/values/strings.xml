@@ -78,6 +78,8 @@
     <string name="aucune_commande">Aucune commande pour l\'instant.</string>
     <string name="label_articles">articles</string>
     <string name="label_mad">MAD</string>
+    <string name="format_order_numero">Commande #%d</string>
+    <string name="format_articles">%d article(s)</string>
 
     <!-- Points de retrait -->
     <string name="title_points_retrait">Points de retrait</string>

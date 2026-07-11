@@ -47,18 +47,18 @@ public class OrderAdapter extends BaseAdapter {
         }
 
         Order o = getItem(position);
-        h.id.setText("Commande #" + o.getId());
+        h.id.setText(context.getString(R.string.format_order_numero, (int) o.getId()));
         h.date.setText(o.getDate());
-        h.articles.setText(o.getNbArticles() + " article(s)");
+        h.articles.setText(context.getString(R.string.format_articles, o.getNbArticles()));
         h.total.setText(String.format("%.2f MAD", o.getMontantTotal()));
 
         // Badge coloré selon le statut
         if ("livree".equals(o.getStatut())) {
-            h.statut.setText("Livrée");
+            h.statut.setText(context.getString(R.string.statut_livree));
             h.statut.setBackground(context.getResources().getDrawable(R.drawable.bg_statut_livree, null));
             h.statut.setTextColor(context.getResources().getColor(R.color.statut_livree_text, null));
         } else {
-            h.statut.setText("En cours");
+            h.statut.setText(context.getString(R.string.statut_en_cours));
             h.statut.setBackground(context.getResources().getDrawable(R.drawable.bg_statut_en_cours, null));
             h.statut.setTextColor(context.getResources().getColor(R.color.statut_en_cours_text, null));
         }

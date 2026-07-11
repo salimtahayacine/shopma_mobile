@@ -72,8 +72,11 @@ public class AccueilActivity extends AppCompatActivity {
         });
 
         // ─── Barre de recherche ───
-        findViewById(R.id.ll_search_bar).setOnClickListener(v ->
-                startActivity(new Intent(this, RechercheActivity.class)));
+        findViewById(R.id.ll_search_bar).setOnClickListener(v -> {
+            Intent iRecherche = new Intent(this, RechercheActivity.class);
+            iRecherche.putExtra(RechercheActivity.EXTRA_USERNAME, username);
+            startActivity(iRecherche);
+        });
 
         // ─── Hero "En profiter" → Électronique ───
         findViewById(R.id.btn_hero).setOnClickListener(v ->

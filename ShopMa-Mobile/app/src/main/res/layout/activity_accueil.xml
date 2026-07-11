@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    AccueilActivity — Dashboard ShopMa redesigné.
-    Structure : CoordinatorLayout > AppBarLayout (toolbar) + NestedScrollView + BottomNavigationView.
-    Sections : Accueil + Search + Hero Banner + Catégories (bento) + Tendances.
+    AccueilActivity — Dashboard ShopMa.
+    Structure : CoordinatorLayout > AppBarLayout (toolbar custom) + NestedScrollView + BottomNavigationView.
+    Sections : Salutation + Search + Hero Banner + GridLayout 2x3 catégories + Tendances.
 -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -155,7 +155,6 @@
                 android:background="@drawable/bg_hero_banner"
                 android:layout_marginBottom="@dimen/section_gap">
 
-                <!-- Overlay sombre gauche pour lisibilité du texte -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -203,7 +202,6 @@
 
                 </LinearLayout>
 
-                <!-- Icône décorative droite (grand box semi-transparent) -->
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="120dp"
@@ -245,93 +243,73 @@
 
             </LinearLayout>
 
-            <!-- ─── Carte "Tous les produits" (pleine largeur) ─── -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_all"
-                style="@style/ShopMa.Card"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="#F3F4F6"
-                android:clickable="true"
-                android:focusable="true">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="0dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/card_all"
-                            android:textColor="@color/text_primary"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="4dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/card_all_sub"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                    <!-- Icône décorative grande, semi-transparente -->
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/ic_inventory"
-                        android:scaleType="fitCenter"
-                        android:alpha="0.18"
-                        android:contentDescription="@null" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- ─── 2×2 grille catégories ─── -->
-
-            <!-- Ligne 1 : Électronique + Bijoux -->
-            <LinearLayout
+            <!-- ─── GridLayout 2 colonnes × 3 lignes = 6 cartes catégories ─── -->
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
+                android:columnCount="2"
+                android:rowCount="3"
+                android:layout_marginBottom="@dimen/section_gap">
 
+                <!-- Cellule (1,1) : Tous les produits -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/card_electronics"
+                    android:id="@+id/card_all"
                     style="@style/ShopMa.Card"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="5dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
                     android:clickable="true"
                     android:focusable="true">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center_vertical"
                         android:padding="14dp">
-
-                        <!-- Icône avec fond coloré -->
                         <FrameLayout
                             android:layout_width="@dimen/cat_icon_bg_size"
                             android:layout_height="@dimen/cat_icon_bg_size"
                             android:background="@drawable/bg_icon_green"
-                            android:layout_marginBottom="10dp">
+                            android:layout_marginBottom="8dp">
+                            <ImageView
+                                android:layout_width="@dimen/cat_icon_size"
+                                android:layout_height="@dimen/cat_icon_size"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_inventory"
+                                android:contentDescription="@null" />
+                        </FrameLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/card_all"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Cellule (1,2) : Électronique -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_electronics"
+                    style="@style/ShopMa.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:padding="14dp">
+                        <FrameLayout
+                            android:layout_width="@dimen/cat_icon_bg_size"
+                            android:layout_height="@dimen/cat_icon_bg_size"
+                            android:background="@drawable/bg_icon_green"
+                            android:layout_marginBottom="8dp">
                             <ImageView
                                 android:layout_width="@dimen/cat_icon_size"
                                 android:layout_height="@dimen/cat_icon_size"
@@ -339,40 +317,37 @@
                                 android:src="@drawable/ic_devices"
                                 android:contentDescription="@null" />
                         </FrameLayout>
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/card_electronics"
                             android:textColor="@color/text_primary"
-                            android:textSize="13sp"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Cellule (2,1) : Bijoux -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_jewelery"
                     style="@style/ShopMa.Card"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="5dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
                     android:clickable="true"
                     android:focusable="true">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center_vertical"
                         android:padding="14dp">
-
                         <FrameLayout
                             android:layout_width="@dimen/cat_icon_bg_size"
                             android:layout_height="@dimen/cat_icon_bg_size"
                             android:background="@drawable/bg_icon_orange"
-                            android:layout_marginBottom="10dp">
+                            android:layout_marginBottom="8dp">
                             <ImageView
                                 android:layout_width="@dimen/cat_icon_size"
                                 android:layout_height="@dimen/cat_icon_size"
@@ -380,49 +355,37 @@
                                 android:src="@drawable/ic_diamond"
                                 android:contentDescription="@null" />
                         </FrameLayout>
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/card_jewelery"
                             android:textColor="@color/text_primary"
-                            android:textSize="13sp"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
-
-            <!-- Ligne 2 : Mode Homme + Mode Femme -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
-
+                <!-- Cellule (2,2) : Mode Homme -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_mens"
                     style="@style/ShopMa.Card"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="5dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
                     android:clickable="true"
                     android:focusable="true">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center_vertical"
                         android:padding="14dp">
-
                         <FrameLayout
                             android:layout_width="@dimen/cat_icon_bg_size"
                             android:layout_height="@dimen/cat_icon_bg_size"
                             android:background="@drawable/bg_icon_blue"
-                            android:layout_marginBottom="10dp">
+                            android:layout_marginBottom="8dp">
                             <ImageView
                                 android:layout_width="@dimen/cat_icon_size"
                                 android:layout_height="@dimen/cat_icon_size"
@@ -430,40 +393,37 @@
                                 android:src="@drawable/ic_checkroom"
                                 android:contentDescription="@null" />
                         </FrameLayout>
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/card_mens"
                             android:textColor="@color/text_primary"
-                            android:textSize="13sp"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Cellule (3,1) : Mode Femme -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_womens"
                     style="@style/ShopMa.Card"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="5dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
                     android:clickable="true"
                     android:focusable="true">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center_vertical"
                         android:padding="14dp">
-
                         <FrameLayout
                             android:layout_width="@dimen/cat_icon_bg_size"
                             android:layout_height="@dimen/cat_icon_bg_size"
                             android:background="@drawable/bg_icon_pink"
-                            android:layout_marginBottom="10dp">
+                            android:layout_marginBottom="8dp">
                             <ImageView
                                 android:layout_width="@dimen/cat_icon_size"
                                 android:layout_height="@dimen/cat_icon_size"
@@ -471,73 +431,55 @@
                                 android:src="@drawable/ic_styler"
                                 android:contentDescription="@null" />
                         </FrameLayout>
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/card_womens"
                             android:textColor="@color/text_primary"
-                            android:textSize="13sp"
+                            android:textSize="12sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
+                <!-- Cellule (3,2) : Points de retrait -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_pickup"
+                    style="@style/ShopMa.Card"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:padding="14dp">
+                        <FrameLayout
+                            android:layout_width="@dimen/cat_icon_bg_size"
+                            android:layout_height="@dimen/cat_icon_bg_size"
+                            android:background="@drawable/bg_icon_green"
+                            android:layout_marginBottom="8dp">
+                            <ImageView
+                                android:layout_width="@dimen/cat_icon_size"
+                                android:layout_height="@dimen/cat_icon_size"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_location_on"
+                                android:contentDescription="@null" />
+                        </FrameLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/card_pickup"
+                            android:textColor="@color/text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-            <!-- ─── Carte "Points de retrait" (bordure tiretée) ─── -->
-            <LinearLayout
-                android:id="@+id/card_pickup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/bg_pickup_card"
-                android:padding="16dp"
-                android:layout_marginBottom="@dimen/section_gap"
-                android:clickable="true"
-                android:focusable="true">
-
-                <!-- Icône localisation (cercle blanc + shadow simulé) -->
-                <FrameLayout
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/bg_pickup_icon"
-                    android:elevation="2dp"
-                    android:layout_marginEnd="14dp">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_location_on"
-                        android:contentDescription="@null" />
-
-                </FrameLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/card_pickup"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="2dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/card_pickup_sub"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-            </LinearLayout>
+            </GridLayout>
 
             <!-- ─── Section "Tendances" ─── -->
             <TextView

@@ -20,10 +20,10 @@ public class NotificationHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
-                    "Commandes ShopMa",
+                    ctx.getString(R.string.notif_channel_name),
                     NotificationManager.IMPORTANCE_DEFAULT
             );
-            channel.setDescription("Notifications de confirmation de commande");
+            channel.setDescription(ctx.getString(R.string.notif_channel_desc));
             NotificationManager nm = ctx.getSystemService(NotificationManager.class);
             if (nm != null) nm.createNotificationChannel(channel);
         }
@@ -32,9 +32,9 @@ public class NotificationHelper {
     /** Envoie la notification de confirmation de commande. */
     public static void notifierCommande(Context ctx) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(ctx, CHANNEL_ID)
-                .setSmallIcon(android.R.drawable.ic_dialog_info)
-                .setContentTitle("Commande confirmée !")
-                .setContentText("Votre commande a bien été enregistrée. Merci !")
+                .setSmallIcon(R.drawable.ic_logo_shopma)
+                .setContentTitle(ctx.getString(R.string.notif_title))
+                .setContentText(ctx.getString(R.string.notif_text))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true);
 
