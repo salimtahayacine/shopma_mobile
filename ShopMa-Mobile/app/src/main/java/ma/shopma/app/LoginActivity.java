@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // "Créer un compte" — pas encore implémenté, toast informatif
         tvRegister.setOnClickListener(v ->
-            Toast.makeText(this, "Inscription disponible prochainement", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.msg_inscription_bientot, Toast.LENGTH_SHORT).show()
         );
     }
 

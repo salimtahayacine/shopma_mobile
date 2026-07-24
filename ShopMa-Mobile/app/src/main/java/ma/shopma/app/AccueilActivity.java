@@ -69,8 +69,8 @@ public class AccueilActivity extends AppCompatActivity {
         findViewById(R.id.fl_cart).setOnClickListener(v -> ouvrirPanier());
         rafraichirBadge();
 
-        // ─── Hamburger menu → profil (drawer non implémenté → profil) ───
-        findViewById(R.id.btn_menu).setOnClickListener(v -> {
+        // ─── Icône Profil ───
+        findViewById(R.id.btn_profile).setOnClickListener(v -> {
             Intent i = new Intent(this, ProfilActivity.class);
             i.putExtra(EXTRA_USERNAME, username);
             startActivity(i);
