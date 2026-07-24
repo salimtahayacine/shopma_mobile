@@ -102,4 +102,11 @@
     <!-- Service client intent implicite -->
     <string name="service_client_tel">+212522000000</string>
     <string name="btn_appel_service">Appeler le service client</string>
+
+    <!-- Content descriptions Toolbar Accueil -->
+    <string name="content_desc_profil">Profil</string>
+    <string name="content_desc_panier">Panier</string>
+
+    <!-- Login -->
+    <string name="msg_inscription_bientot">Inscription disponible prochainement</string>
 </resources>

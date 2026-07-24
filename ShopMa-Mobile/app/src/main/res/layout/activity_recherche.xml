@@ -57,19 +57,19 @@
         android:paddingBottom="@dimen/margin_small">
 
         <Button android:id="@+id/chip_electronics" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="electronics"
+            android:layout_height="wrap_content" android:text="@string/card_electronics"
             android:layout_marginEnd="@dimen/margin_xsmall"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
         <Button android:id="@+id/chip_jewelery" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="jewelery"
+            android:layout_height="wrap_content" android:text="@string/card_jewelery"
             android:layout_marginEnd="@dimen/margin_xsmall"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
         <Button android:id="@+id/chip_mens" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="men's"
+            android:layout_height="wrap_content" android:text="@string/card_mens"
             android:layout_marginEnd="@dimen/margin_xsmall"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
         <Button android:id="@+id/chip_womens" android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="women's"
+            android:layout_height="wrap_content" android:text="@string/card_womens"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
     </LinearLayout>
