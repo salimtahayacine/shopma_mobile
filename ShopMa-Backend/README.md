@@ -48,17 +48,23 @@ Documentation interactive : **http://localhost:8080/swagger-ui.html**
 
 ## 3. Démarrage local
 
-### Étape 1 — PostgreSQL
+### Option A — Tout via Docker (recommandé, une seule commande)
 
-Avec Docker (recommandé) :
 ```bash
-docker compose up -d
+docker compose up --build
 ```
-> Démarre PostgreSQL (base `shopma`, user `shopma`, mot de passe `shopma`) sur le port 5432.
 
-Sans Docker : créez une base `shopma` et un utilisateur `shopma`/`shopma`, ou adaptez `src/main/resources/application.properties`.
+Lance **l'API + PostgreSQL** ensemble (`Dockerfile` multi-stage : build Maven puis image `eclipse-temurin:17-jre-alpine`). L'API attend que PostgreSQL soit prêt (`healthcheck`) avant de démarrer. Accessible sur `http://localhost:8080`.
 
-### Étape 2 — Lancer le backend
+Pour arrêter : `docker compose down` (ajouter `-v` pour aussi supprimer les données PostgreSQL).
+
+### Option B — PostgreSQL en Docker, API en local (utile en développement)
+
+```bash
+docker compose up -d postgres
+```
+> Démarre uniquement PostgreSQL (base `shopma`, user `shopma`, mot de passe `shopma`) sur le port 5432.
+
 ```bash
 # avec Maven installé
 mvn spring-boot:run
@@ -68,9 +74,11 @@ mvn clean package
 java -jar target/shopma-api-1.0.0.jar
 ```
 
+Sans Docker du tout : créez une base `shopma` et un utilisateur `shopma`/`shopma`, ou adaptez `src/main/resources/application.properties`.
+
 Au premier démarrage, **20 produits marocains** sont insérés automatiquement (voir `DataSeeder`).
 
-### Étape 3 — Vérifier
+### Vérifier
 ```bash
 curl http://localhost:8080/products
 curl http://localhost:8080/products/categories
@@ -108,6 +116,7 @@ Les contrats JSON étant identiques, changer d'URL ne nécessite aucune autre mo
 ```
 ShopMa-Backend/
 ├── pom.xml
+├── Dockerfile
 ├── docker-compose.yml
 └── src/main/java/ma/shopma/api/
     ├── ShopMaApiApplication.java

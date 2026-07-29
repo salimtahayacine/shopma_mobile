@@ -7,6 +7,8 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import ma.shopma.app.R;
+
 /**
  * Gestion du canal et de l'envoi de la notification de confirmation de commande.
  */
